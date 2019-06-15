@@ -1896,9 +1896,8 @@ div.tocify {
 <a class="sourceLine" id="cb3-16" title="16"><span class="kw">proj4string</span>(r.crop) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>)</a>
 <a class="sourceLine" id="cb3-17" title="17">lmt_proj&lt;-<span class="kw">projectRaster</span>(r.crop, <span class="dt">crs=</span>ak.proj) </a>
 <a class="sourceLine" id="cb3-18" title="18"></a>
-<a class="sourceLine" id="cb3-19" title="19"></a>
-<a class="sourceLine" id="cb3-20" title="20"><span class="co"># replace layer names</span></a>
-<a class="sourceLine" id="cb3-21" title="21"><span class="kw">names</span>(lmt_proj) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Jan&quot;</span>,<span class="st">&quot;Feb&quot;</span>,<span class="st">&quot;Mar&quot;</span>,<span class="st">&quot;Apr&quot;</span>,<span class="st">&quot;May&quot;</span>,<span class="st">&quot;Jun&quot;</span>,<span class="st">&quot;Jul&quot;</span>,<span class="st">&quot;Aug&quot;</span>,<span class="st">&quot;Sep&quot;</span>,<span class="st">&quot;Oct&quot;</span>,<span class="st">&quot;Nov&quot;</span>,<span class="st">&quot;Dec&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb3-19" title="19"><span class="co"># replace layer names</span></a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="kw">names</span>(lmt_proj) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Jan&quot;</span>,<span class="st">&quot;Feb&quot;</span>,<span class="st">&quot;Mar&quot;</span>,<span class="st">&quot;Apr&quot;</span>,<span class="st">&quot;May&quot;</span>,<span class="st">&quot;Jun&quot;</span>,<span class="st">&quot;Jul&quot;</span>,<span class="st">&quot;Aug&quot;</span>,<span class="st">&quot;Sep&quot;</span>,<span class="st">&quot;Oct&quot;</span>,<span class="st">&quot;Nov&quot;</span>,<span class="st">&quot;Dec&quot;</span>)</a></code></pre></div>
 </div>
 <div id="plot-the-average-temperature-by-month" class="section level2">
 <h2><span class="header-section-number">3.2</span> Plot the average temperature by month</h2>
@@ -1927,11 +1926,10 @@ div.tocify {
 <a class="sourceLine" id="cb6-3" title="3"></a>
 <a class="sourceLine" id="cb6-4" title="4">ROI &lt;-<span class="st"> </span><span class="kw">extent</span>(<span class="op">-</span><span class="dv">180</span>,<span class="op">-</span><span class="dv">140</span>,<span class="dv">50</span>,<span class="dv">75</span>)</a>
 <a class="sourceLine" id="cb6-5" title="5"></a>
-<a class="sourceLine" id="cb6-6" title="6"></a>
-<a class="sourceLine" id="cb6-7" title="7">r.crop &lt;-<span class="st"> </span><span class="kw">crop</span>(r,ROI)</a>
-<a class="sourceLine" id="cb6-8" title="8"></a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="kw">proj4string</span>(r.crop) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>)</a>
-<a class="sourceLine" id="cb6-10" title="10">tmp_proj&lt;-<span class="kw">projectRaster</span>(r.crop, <span class="dt">crs=</span>ak.proj) </a></code></pre></div>
+<a class="sourceLine" id="cb6-6" title="6">r.crop &lt;-<span class="st"> </span><span class="kw">crop</span>(r,ROI)</a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="kw">proj4string</span>(r.crop) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>)</a>
+<a class="sourceLine" id="cb6-9" title="9">tmp_proj&lt;-<span class="kw">projectRaster</span>(r.crop, <span class="dt">crs=</span>ak.proj) </a></code></pre></div>
 </div>
 <div id="plot-january-1979-temperatures" class="section level2">
 <h2><span class="header-section-number">4.2</span> Plot January 1979 temperatures</h2>
@@ -1986,56 +1984,50 @@ div.tocify {
 <a class="sourceLine" id="cb11-6" title="6"><span class="co"># open a netCDF file</span></a>
 <a class="sourceLine" id="cb11-7" title="7">ncin &lt;-<span class="st"> </span><span class="kw">nc_open</span>(ncfname)</a>
 <a class="sourceLine" id="cb11-8" title="8"></a>
-<a class="sourceLine" id="cb11-9" title="9"></a>
-<a class="sourceLine" id="cb11-10" title="10">x &lt;-<span class="st"> </span><span class="kw">ncvar_get</span>(ncin,<span class="st">&quot;lon&quot;</span>)</a>
-<a class="sourceLine" id="cb11-11" title="11">xlname &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;lon&quot;</span>,<span class="st">&quot;long_name&quot;</span>)</a>
-<a class="sourceLine" id="cb11-12" title="12">xunits &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;lon&quot;</span>,<span class="st">&quot;units&quot;</span>)</a>
-<a class="sourceLine" id="cb11-13" title="13">nlon &lt;-<span class="st"> </span><span class="kw">dim</span>(x)</a>
-<a class="sourceLine" id="cb11-14" title="14"></a>
-<a class="sourceLine" id="cb11-15" title="15"></a>
-<a class="sourceLine" id="cb11-16" title="16">y &lt;-<span class="st"> </span><span class="kw">ncvar_get</span>(ncin,<span class="st">&quot;lat&quot;</span>)</a>
-<a class="sourceLine" id="cb11-17" title="17">ylname &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;lat&quot;</span>,<span class="st">&quot;long_name&quot;</span>)</a>
-<a class="sourceLine" id="cb11-18" title="18">yunits &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;lat&quot;</span>,<span class="st">&quot;units&quot;</span>)</a>
-<a class="sourceLine" id="cb11-19" title="19">nlat &lt;-<span class="st"> </span><span class="kw">dim</span>(y)</a>
-<a class="sourceLine" id="cb11-20" title="20"></a>
-<a class="sourceLine" id="cb11-21" title="21"></a>
-<a class="sourceLine" id="cb11-22" title="22"></a>
-<a class="sourceLine" id="cb11-23" title="23"><span class="co"># get time</span></a>
-<a class="sourceLine" id="cb11-24" title="24">time &lt;-<span class="st"> </span><span class="kw">ncvar_get</span>(ncin,<span class="st">&quot;time&quot;</span>)</a>
-<a class="sourceLine" id="cb11-25" title="25">tunits &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;time&quot;</span>,<span class="st">&quot;units&quot;</span>)</a>
-<a class="sourceLine" id="cb11-26" title="26">nt &lt;-<span class="st"> </span><span class="kw">dim</span>(time)</a>
-<a class="sourceLine" id="cb11-27" title="27"></a>
-<a class="sourceLine" id="cb11-28" title="28">nm &lt;-<span class="st"> </span><span class="dv">12</span></a>
-<a class="sourceLine" id="cb11-29" title="29">ny &lt;-<span class="st"> </span>nt<span class="op">/</span>nm</a>
-<a class="sourceLine" id="cb11-30" title="30"></a>
+<a class="sourceLine" id="cb11-9" title="9">x &lt;-<span class="st"> </span><span class="kw">ncvar_get</span>(ncin,<span class="st">&quot;lon&quot;</span>)</a>
+<a class="sourceLine" id="cb11-10" title="10">xlname &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;lon&quot;</span>,<span class="st">&quot;long_name&quot;</span>)</a>
+<a class="sourceLine" id="cb11-11" title="11">xunits &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;lon&quot;</span>,<span class="st">&quot;units&quot;</span>)</a>
+<a class="sourceLine" id="cb11-12" title="12">nlon &lt;-<span class="st"> </span><span class="kw">dim</span>(x)</a>
+<a class="sourceLine" id="cb11-13" title="13"></a>
+<a class="sourceLine" id="cb11-14" title="14">y &lt;-<span class="st"> </span><span class="kw">ncvar_get</span>(ncin,<span class="st">&quot;lat&quot;</span>)</a>
+<a class="sourceLine" id="cb11-15" title="15">ylname &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;lat&quot;</span>,<span class="st">&quot;long_name&quot;</span>)</a>
+<a class="sourceLine" id="cb11-16" title="16">yunits &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;lat&quot;</span>,<span class="st">&quot;units&quot;</span>)</a>
+<a class="sourceLine" id="cb11-17" title="17">nlat &lt;-<span class="st"> </span><span class="kw">dim</span>(y)</a>
+<a class="sourceLine" id="cb11-18" title="18"></a>
+<a class="sourceLine" id="cb11-19" title="19"><span class="co"># get time</span></a>
+<a class="sourceLine" id="cb11-20" title="20">time &lt;-<span class="st"> </span><span class="kw">ncvar_get</span>(ncin,<span class="st">&quot;time&quot;</span>)</a>
+<a class="sourceLine" id="cb11-21" title="21">tunits &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="st">&quot;time&quot;</span>,<span class="st">&quot;units&quot;</span>)</a>
+<a class="sourceLine" id="cb11-22" title="22">nt &lt;-<span class="st"> </span><span class="kw">dim</span>(time)</a>
+<a class="sourceLine" id="cb11-23" title="23"></a>
+<a class="sourceLine" id="cb11-24" title="24">nm &lt;-<span class="st"> </span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb11-25" title="25">ny &lt;-<span class="st"> </span>nt<span class="op">/</span>nm</a>
+<a class="sourceLine" id="cb11-26" title="26"></a>
+<a class="sourceLine" id="cb11-27" title="27"><span class="co"># get years &amp; generate months</span></a>
+<a class="sourceLine" id="cb11-28" title="28">year &lt;-<span class="st"> </span>time<span class="op">/</span>nm</a>
+<a class="sourceLine" id="cb11-29" title="29"></a>
+<a class="sourceLine" id="cb11-30" title="30">month &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>), ny)</a>
 <a class="sourceLine" id="cb11-31" title="31"></a>
 <a class="sourceLine" id="cb11-32" title="32"></a>
-<a class="sourceLine" id="cb11-33" title="33"><span class="co"># get years &amp; generate months</span></a>
-<a class="sourceLine" id="cb11-34" title="34">year &lt;-<span class="st"> </span>time<span class="op">/</span>nm</a>
-<a class="sourceLine" id="cb11-35" title="35"></a>
-<a class="sourceLine" id="cb11-36" title="36">month &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>), ny)</a>
-<a class="sourceLine" id="cb11-37" title="37"></a>
+<a class="sourceLine" id="cb11-33" title="33"><span class="co"># get temperature</span></a>
+<a class="sourceLine" id="cb11-34" title="34">tmp_array &lt;-<span class="st"> </span><span class="kw">ncvar_get</span>(ncin,dname)</a>
+<a class="sourceLine" id="cb11-35" title="35">dlname &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,dname,<span class="st">&quot;long_name&quot;</span>)</a>
+<a class="sourceLine" id="cb11-36" title="36">dunits &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,dname,<span class="st">&quot;units&quot;</span>)</a>
+<a class="sourceLine" id="cb11-37" title="37">fillvalue &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,dname,<span class="st">&quot;_FillValue&quot;</span>)</a>
 <a class="sourceLine" id="cb11-38" title="38"></a>
-<a class="sourceLine" id="cb11-39" title="39"><span class="co"># get temperature</span></a>
-<a class="sourceLine" id="cb11-40" title="40">tmp_array &lt;-<span class="st"> </span><span class="kw">ncvar_get</span>(ncin,dname)</a>
-<a class="sourceLine" id="cb11-41" title="41">dlname &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,dname,<span class="st">&quot;long_name&quot;</span>)</a>
-<a class="sourceLine" id="cb11-42" title="42">dunits &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,dname,<span class="st">&quot;units&quot;</span>)</a>
-<a class="sourceLine" id="cb11-43" title="43">fillvalue &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,dname,<span class="st">&quot;_FillValue&quot;</span>)</a>
-<a class="sourceLine" id="cb11-44" title="44"></a>
-<a class="sourceLine" id="cb11-45" title="45"></a>
-<a class="sourceLine" id="cb11-46" title="46"><span class="co"># get global attributes</span></a>
-<a class="sourceLine" id="cb11-47" title="47">title &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;title&quot;</span>)</a>
-<a class="sourceLine" id="cb11-48" title="48">institution &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;institution&quot;</span>)</a>
-<a class="sourceLine" id="cb11-49" title="49">datasource &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;source&quot;</span>)</a>
-<a class="sourceLine" id="cb11-50" title="50">references &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;references&quot;</span>)</a>
-<a class="sourceLine" id="cb11-51" title="51">history &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;history&quot;</span>)</a>
-<a class="sourceLine" id="cb11-52" title="52">Conventions &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;Conventions&quot;</span>)</a>
-<a class="sourceLine" id="cb11-53" title="53"></a>
-<a class="sourceLine" id="cb11-54" title="54"><span class="co"># close the netCDF file</span></a>
-<a class="sourceLine" id="cb11-55" title="55"><span class="kw">nc_close</span>(ncin)</a>
-<a class="sourceLine" id="cb11-56" title="56"></a>
-<a class="sourceLine" id="cb11-57" title="57"><span class="co"># replace netCDF fill values with NA&#39;s</span></a>
-<a class="sourceLine" id="cb11-58" title="58">tmp_array[tmp_array<span class="op">==</span>fillvalue<span class="op">$</span>value] &lt;-<span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-39" title="39"></a>
+<a class="sourceLine" id="cb11-40" title="40"><span class="co"># get global attributes</span></a>
+<a class="sourceLine" id="cb11-41" title="41">title &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;title&quot;</span>)</a>
+<a class="sourceLine" id="cb11-42" title="42">institution &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;institution&quot;</span>)</a>
+<a class="sourceLine" id="cb11-43" title="43">datasource &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;source&quot;</span>)</a>
+<a class="sourceLine" id="cb11-44" title="44">references &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;references&quot;</span>)</a>
+<a class="sourceLine" id="cb11-45" title="45">history &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;history&quot;</span>)</a>
+<a class="sourceLine" id="cb11-46" title="46">Conventions &lt;-<span class="st"> </span><span class="kw">ncatt_get</span>(ncin,<span class="dv">0</span>,<span class="st">&quot;Conventions&quot;</span>)</a>
+<a class="sourceLine" id="cb11-47" title="47"></a>
+<a class="sourceLine" id="cb11-48" title="48"><span class="co"># close the netCDF file</span></a>
+<a class="sourceLine" id="cb11-49" title="49"><span class="kw">nc_close</span>(ncin)</a>
+<a class="sourceLine" id="cb11-50" title="50"></a>
+<a class="sourceLine" id="cb11-51" title="51"><span class="co"># replace netCDF fill values with NA&#39;s</span></a>
+<a class="sourceLine" id="cb11-52" title="52">tmp_array[tmp_array<span class="op">==</span>fillvalue<span class="op">$</span>value] &lt;-<span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co">#write arctic-region temperature data to new ncdf file</span></a>
 <a class="sourceLine" id="cb12-2" title="2"></a>
 <a class="sourceLine" id="cb12-3" title="3">tmpin&lt;-tmp_arctic</a>
@@ -2230,11 +2222,11 @@ div.tocify {
 </div>
 </div>
 <div id="conclusion" class="section level1">
-<h1><span class="header-section-number">8</span> Conclusion:</h1>
+<h1><span class="header-section-number">8</span> Conclusion</h1>
 <ul>
-<li>In the period from 1979 to 2018, both summer and winter temperatures in the Alaskan Arctic have increased.</li>
-<li>Winter temperatures have increased at a greater rate than summer temperatures, and could potentially be increasing shrub expansion.</li>
-<li>Additionally, in this region winter temperatures are more variable than summer temperatures.</li>
+<li><p>In the period from 1979 to 2018, both summer and winter temperatures in the Alaskan Arctic have increased.</p></li>
+<li><p>Winter temperatures have increased at a greater rate than summer temperatures, and could potentially be increasing shrub expansion.</p></li>
+<li><p>Additionally, in this region winter temperatures are more variable than summer temperatures.</p></li>
 </ul>
 </div>
 
